@@ -20,11 +20,33 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black"> 
 <meta name="apple-mobile-web-app-title" content="Hello World"> 
     </head>
-    <body class="fullscreen" ontouchstart="">
+    <body class="fullscreen" >
         <div id="click"></div>
   <div class="container">
     <h1 class="title">Hello World!</h1>
   </div>
+        <canvas id="myCanvas" width="400" height="400" style="border:1px solid #000000;" ontouchmove=""></canvas>
         <script src="js/main.js"></script>
+        <script>
+            function myFunction(event) {
+  var x = event.touches[0].clientX;
+  var y = event.touches[0].clientY;
+
+                const canvas = document.getElementById("myCanvas");
+const ctx = canvas.getContext("2d");
+
+// Define a new path
+ctx.beginPath();
+
+// Set a start-point
+ctx.moveTo(0, 0);
+
+// Set an end-point
+ctx.lineTo(x, y);
+
+// Stroke it (Do the Drawing)
+ctx.stroke();
+}
+        </script>
 </body>
 </html>
